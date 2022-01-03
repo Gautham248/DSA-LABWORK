@@ -1,94 +1,104 @@
 #include<stdio.h>
-#include<stdlib.h>
-
+int choice,num;
 struct node{
     int data;
     struct node *link;
-}*top,*head,*temp,*peek;
+}*top,*head,*temp,*dis;
 
-void create(){
-    head==NULL;
-}
-void push(int num){
-    if(head==NULL){
+
+void push(int num)
+{
+    if(head==NULL)
+    {
         head=malloc(sizeof(struct node));
         head->data=num;
         head->link=NULL;
 
     }
-    else{
+    else
+    {
         temp=malloc(sizeof(struct node));
         temp->data=num;
         temp->link=head;
         head=temp;
 
     }
-
 }
 
-void displayList(){
-    if(head==NULL){
-        printf("The stack is empty!!");
+void display()
+{
+    if(head==NULL)
+    {
+        printf("EMPTY LIST!!\n");
+    }
+    else
+    {
+        printf("The elements in the list are:\n");
+        dis=head;
+        while(dis!=NULL)
+        {
+            printf("%d\n",dis->data);
+            dis=dis->link;
+        }
+
+    }
+}
+void pop()
+{
+    if(head==NULL)
+    {
+        printf("STACK UNDERFLOW!\n");
     }
     else{
-            peek=head;
-printf("\nThe elements present in the stack are: \n");
-while(peek!=NULL){
-printf("%d\n",peek->data);
-peek=peek->link;
-}
+        top=head->link;
+        printf("the popped element is : %d\n",head->data);
+        free(head);
+        head=top;
     }
-
 }
-void pop(){
-
-
-}
-
 int main(){
-    int ch,no;
-    printf("--STACK OPERATIONS USING LINKED LIST--\n");
-    printf("______________________________________\n");
-    printf("Enter your choice: \n");
+    printf("--STACK USING LINKED LIST--\n");
+    printf("---------------------------\n");
     printf("1.PUSH\n2.POP\n3.PEEK\n4.DISPLAY\n5.EXIT\n");
-    create();
-    while(1)
-    {
-        printf("CHOICE : ");
-        scanf("%d",&ch);
-        switch(ch)
+    head==NULL;
+    do{
+        printf("Enter your choice:  ");
+        scanf("%d",&choice);
+        switch(choice)
         {
         case 1:
             {
-                printf("Enter the number to be pushed: ");
-                scanf("%d",&no);
-                push(no);
-            }
-            break;
-
-        case 2:
-                {
-                    pop();
-                }
+                printf("Enter number to be pushed: ");
+                scanf("%d",&num);
+                push(num);
                 break;
+            }
+        case 2:
+            {
+               pop();
+                break;
+
+            }
         case 3:
             {
-                printf("The last element is: %d\n",head->data);
+                printf("The  element on top is : %d\n",head->data);
+                break;
             }
-            break;
         case 4:
             {
-                displayList();
+                display();
+                break;
             }
-            break;
         case 5:
-            exit(0);
-            break;
+            {
+                printf("--EXITING--\n");
+                break;
+            }
         default:
-            printf("Enter a valid choice!!");
+            printf("Enter a valid choice!!\n");
         }
-    }
+
+    }while(choice!=5);
 
     return 0;
-
 }
