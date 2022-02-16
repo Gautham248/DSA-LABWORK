@@ -1,0 +1,194 @@
+//9th NOVEMBER 2021
+//AUTHOR:_GAUTHAM_KRISHNA_
+//STACK_IMPLEMENTATION
+//AIM: TO IMPLEMENT STACK OPERATIONS USING C PROGRAMMING
+//---------------------STACK OPERATIONS-----------------
+
+#include<stdio.h>
+#define base 100
+int top,x,i;
+int stack[base],choice,n;
+void push(void);
+void pop(void);
+void display(void);
+void peek(void);
+int main(){
+top=-1;
+printf("Enter the size of the Stack\n");scanf("%d",&n);
+printf("---STACK OPERATIONS---\n");
+printf("----------------------\n");
+printf("1.PUSH\n 2.POP\n 3.PEEK\n4.DISPLAY\n 5.EXIT\n");
+do{
+	printf("\nEnter the choice: \n");
+	scanf("%d",&choice);
+	switch(choice)
+	{
+		case 1:
+		{
+			push();
+			break;
+		}
+		case 2:
+		{
+			pop();
+			break;
+		}
+		case 3:
+		{
+			peek();
+			break;
+		}	
+		case 4:
+		{
+			display();
+			break;
+		}			
+		case 5:
+		{
+			printf("\n---EXITING---\n");
+			break;
+		}
+		default:
+		{
+			printf("\nEnter Valid Choice\n");
+		}
+	}
+  }while(choice!=5);
+  return 0;
+  }
+  
+  void push()
+  {
+  	if(top>=n-1)
+  	{
+  		printf("\nStack Overflow\n");
+  	}
+  	else
+  	{
+  		printf("\nEnter the element to be pushed:\n");
+  		scanf("%d",&x);
+  		top++;	
+  		stack[top]=x;
+  	}
+  }
+  
+  void pop()
+  {
+  	if(top<=-1)
+  	{
+  		printf("\nStack Underflow\n");
+  	}					
+	else
+	{
+		printf("\nPopped Element is : %d",stack[top]);
+		top--;			
+	}
+ }
+ 
+ void peek()
+ {
+	printf("The last element is: %d\n",stack[top]);
+	}
+ 
+ void display()
+ {
+ 	if(top>=0)
+ 	{
+ 		printf("\nThe elements of the Stack are:\n");
+ 		for(i=top;i>=0;i--)
+ 		printf("%d\n",stack[i]);
+ 	}
+ 	else
+ 		printf("\nThe stack is empty\n");
+ }			
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ //16th NOVEMBER 2021
+//AUTHOR:_GAUTHAM_KRISHNA_
+//QUEUE_IMPLEMENTATION
+//AIM: TO IMPLEMENT STACK OPERATIONS USING C PROGRAMMING
+//---------------------QUEUE OPERATIONS--------------
+
+#include<stdio.h>
+#include<stdlib.h>
+#define n 100
+int q[n],x,ch,rear=0,front=0,item,i;
+void enqueue(void);
+void dequeue(void);
+void display(void);
+
+int main(){
+	printf("Enter the number of elements in the Queue\n");
+	scanf("%d",&x);
+	printf("----QUEUE OPERATIONS----\n");
+	printf("1.EnQueue\n2.DeQueue\n3.Display\n4.Exit\n");
+	fflush(stdin);
+	do{
+	printf("\nChoose the operation\n");
+	scanf("%d",&ch);
+	switch(ch)
+	{
+		case 1:
+		{
+		enqueue();break;
+		}
+		case 2:
+		{
+		dequeue();break;
+		}
+		case 3:
+		{
+		display();break;
+		}
+		case 4:
+		{		
+		printf("Exiting\n");
+		break;
+		}
+		default :
+		printf("\nEnter a valid choice\n");
+	
+	}
+	}while(ch!=4);
+	return 0;
+	}
+	
+	void enqueue(){
+	if(rear==(x)){printf("\nQueue is full\n");}
+	else{
+		printf("Enter the element to be entered: ");scanf("%d",&item);
+		q[rear]=item;
+		rear++;
+	
+	}
+	}
+	void dequeue(){
+	if(rear==front){printf("Queue is empty\n");}
+	else{
+		item=q[front];
+		front++;
+		printf("The deleted item is: %d",item);
+	}
+	}
+	
+	void display(){
+	printf("The elements of the Queue are\n");
+		
+            if(front==rear)
+                printf("\n Queue is Empty\n");
+            else
+            {
+                for(i=front; i<rear; i++)
+                {
+                    printf("%d",q[i]);
+                    printf("\n");
+                }
+        }
+}
+	
