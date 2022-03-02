@@ -4,7 +4,7 @@ int main()
 {
     int O[base][base];
     int row,col,i,j;
-    int sparse_count=0;
+    in sparse_count=0;t
     int count=0;
     int sparse[base][3];
     printf("Enter the number of rows of the array:");
@@ -42,12 +42,13 @@ int main()
 
             }
         }
+        printf("%d\t%d\t%d",row,col,((row*col)-sparse_count))
         for(i=0;i<count;i++)
             printf("%d\t%d\t%d\n",sparse[i][0],sparse[i][1],sparse[i][2]);
 
-    printf("The Transpose of the above matrix is\n");
-     for(i=0;i<count;i++)
-            printf("%d\t%d\t%d\n",sparse[0][i],sparse[1][i],sparse[2][i]);
+  //  printf("The Transpose of the above matrix is\n");
+   //  for(i=0;i<count;i++)
+   //         printf("%d\t%d\t%d\n",sparse[0][i],sparse[1][i],sparse[2][i]);
     }
     else
         printf("The given matrix is not a sparse matrix\n");
